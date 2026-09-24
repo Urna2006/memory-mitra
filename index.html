@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Memory Mitra</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Home Screen -->
+        <div id="homeScreen" class="screen active">
+            <h1>🧠 Memory Mitra</h1>
+            <p>Memory Training and Cognitive Assistance Platform</p>
+
+            <button id="startBtn">Start Game ▶</button>
+        </div>
+
+
+        <!-- Region Selection -->
+        <div id="regionScreen" class="screen">
+            <h2>Choose Your Region 🗺️</h2>
+
+            <div class="options">
+                <button class="region-btn" data-region="assam">
+                    🍃 Assam
+                </button>
+
+                <button class="region-btn" data-region="nepal">
+                    🏔️ Nepal
+                </button>
+
+                <button class="region-btn" data-region="sikkim">
+                    🏔️ Sikkim
+                </button>
+
+                <button class="region-btn" data-region="west_bengal">
+                    🌸 West Bengal
+                </button>
+            </div>
+
+            <button class="back-btn" onclick="showScreen('homeScreen')">
+                ← Back
+            </button>
+        </div>
+
+
+        <!-- Language Selection -->
+        <div id="languagesScreen" class="screen">
+
+            <h2>Choose Your Language 🌐</h2>
+
+            <div class="options">
+
+                <div class="options">
+                   <button class="language-btn" data-language="bengali">
+                       বাংলা
+                    </button>
+
+                    <button class="language-btn" data-language="assamese">
+                        অসমীয়া
+                    </button>
+
+                    <button class="language-btn" data-language="hindi">
+                        हिन्दी
+                    </button>
+
+                    <button class="language-btn" data-language="english">
+                        English
+                    </button>
+
+                    <button class="language-btn" data-language="nepali">
+                        नेपाली
+                    </button>
+                </div>
+
+            </div>
+
+    <button class="back-btn" onclick="showScreen('regionScreen')">
+        ← Back
+    </button>
+
+</div>
+
+
+        <!-- Difficulty Selection -->
+        <div id="difficultyScreen" class="screen">
+
+            <h2 id="difficultyTitle">Choose Difficulty 🎯</h2>
+
+            <div class="options">
+
+                <button class="difficulty-btn" data-difficulty="easy">
+                    Easy 😊
+                </button>
+
+                <button class="difficulty-btn" data-difficulty="medium">
+                    Medium 🤔
+                </button>
+
+                <button class="difficulty-btn" data-difficulty="hard">
+                    Hard 🔥
+                </button>
+
+            </div>
+
+            <button class="back-btn" onclick="showScreen('languageScreen')">
+                ← Back
+            </button>
+
+        </div>
+
+
+        <!-- Game Screen -->
+        <div id="gameScreen" class="screen">
+
+            <h2 id="gameTitle">Memory Game 🧠</h2>
+
+            <div class="game-info">
+
+                <div>
+                    Moves: <span id="moves">0</span>
+                </div>
+
+                <div>
+                    Time: <span id="timer">0</span>s
+                </div>
+
+                <div id="difficultyIndicator">
+                    🧠 AI Difficulty: Medium
+                </div>
+
+            </div>
+
+            <div id="gameBoard" class="game-board">
+                <!-- Cards will appear here -->
+            </div>
+
+            <button id="restartBtn">
+                🔄 Restart Game
+            </button>
+
+            <button class="back-btn" onclick="showScreen('difficultyScreen')">
+                ← Back
+            </button>
+
+        </div>
+
+
+        <!-- Win Screen -->
+        <div id="winScreen" class="screen">
+
+            <h1>🎉 Congratulations!</h1>
+
+            <p id="winMessage">
+                You completed the game!
+            </p>
+
+            <div id="performanceReport">
+
+                <h3>📊 Performance Report</h3>
+
+                <p>🎯 Accuracy: <span id="accuracyResult">0%</span></p>
+
+                <p>❌ Mistakes: <span id="mistakesResult">0</span></p>
+
+                <p>✅ Correct Matches: <span id="correctMatchesResult">0</span></p>
+
+                <p>⏱️ Average Response Time: <span id="averageTimeResult">0s</span></p>
+
+                <p>🧠 Final Difficulty: <span id="finalDifficultyResult">Medium</span></p>
+
+        </div>
+
+        <div id="caregiverReport">
+
+    <h3>👩‍⚕️ Caregiver Summary</h3>
+
+    <p>
+        🧠 Cognitive Performance:
+        <span id="cognitiveStatus">Completed</span>
+    </p>
+
+    <p>
+        📈 Progress:
+        <span id="progressStatus">Good</span>
+    </p>
+
+</div>
+
+<button id="caregiverBtn">
+    👩‍⚕️ Caregiver Dashboard
+</button>
+
+            <button id="playAgainBtn">
+                🔄 Play Again
+            </button>
+
+            <button id="homeBtn">
+                🏠 Home
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- CAREGIVER DASHBOARD -->
+<div id="caregiverDashboard" class="screen">
+
+    <h2>👩‍⚕️ Caregiver Dashboard</h2>
+
+    <div class="dashboard-card">
+
+        <h3>📊 Cognitive Performance</h3>
+
+        <p>
+            🎯 Accuracy:
+            <span id="dashboardAccuracy">0%</span>
+        </p>
+
+        <p>
+            ❌ Mistakes:
+            <span id="dashboardMistakes">0</span>
+        </p>
+
+        <p>
+            ✅ Correct Matches:
+            <span id="dashboardCorrect">0</span>
+        </p>
+
+        <p>
+            ⏱️ Average Response Time:
+            <span id="dashboardTime">0s</span>
+        </p>
+
+        <p>
+            🧠 Final Difficulty:
+            <span id="dashboardDifficulty">Medium</span>
+        </p>
+
+        <p>
+            🧠 Cognitive Status:
+            <span id="dashboardCognitive">Good</span>
+        </p>
+
+        <p>
+            📈 Progress:
+            <span id="dashboardProgress">Good</span>
+        </p>
+
+    </div>
+
+    <button id="dashboardHomeBtn">
+        🏠 Back to Home
+    </button>
+
+</div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
